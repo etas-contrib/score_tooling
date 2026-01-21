@@ -15,5 +15,5 @@
 set -uo pipefail; set +e
 
 if command -v clang-format >/dev/null 2>&1; then
-	exec clang-format --style=file --fallback-style="Google" "$@"
+	exec clang-format "$@"
 fi
