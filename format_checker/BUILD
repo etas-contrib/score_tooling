@@ -22,3 +22,11 @@ sh_binary(
         "@score_rust_policies//rustfmt:rustfmt.toml",
     ],
 )
+
+sh_binary(
+    name = "clangformat_with_policies",
+    srcs = ["tool/clangformat_with_policies.sh"],
+    data = [
+        "@bazel_tools//tools/bash/runfiles",
+    ],
+)
