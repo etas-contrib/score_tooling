@@ -12,8 +12,11 @@
 # SPDX-License-Identifier: Apache-2.0
 # *******************************************************************************
 
-set -uo pipefail; set +e
+set -euo pipefail
 
-if command -v clang-format >/dev/null 2>&1; then
-	exec clang-format "$@"
+if ! command -v clang-format >/dev/null 2>&1; then
+	echo "ERROR: 'clang-format' not found on PATH. Install clang-format or configure your environment so the binary is available." >&2
+	exit 127
 fi
+
+exec clang-format "$@"
